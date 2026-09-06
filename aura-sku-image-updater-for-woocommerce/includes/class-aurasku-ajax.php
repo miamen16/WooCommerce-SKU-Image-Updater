@@ -35,7 +35,14 @@ class AURASKU_Ajax {
 		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- validated below via wp_check_filetype_and_ext.
 		$file = $_FILES['aurasku_image'];
 		$filetype = wp_check_filetype_and_ext( $file['tmp_name'], $file['name'] );
-		if ( empty( $filetype['type'] ) || 0 !== strpos( $filetype['type'], 'image/' ) ) {
+		$allowed_mimes = array(
+			'image/jpeg',
+			'image/png',
+			'image/gif',
+			'image/webp',
+		);
+
+		if ( empty( $filetype['type'] ) || ! in_array( $filetype['type'], $allowed_mimes, true ) ) {
 			wp_send_json_error( array( 'message' => __( 'The uploaded file is not a supported image type (jpg, png, gif, webp).', 'aura-sku-image-updater-for-woocommerce' ) ) );
 		}
 
@@ -88,13 +95,27 @@ class AURASKU_Ajax {
 
 	private function attachment_unused_elsewhere( $attachment_id, $exclude_product_id ) {
 		global $wpdb;
-		$count = $wpdb->get_var(
+
+		$thumbnail_count = $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT COUNT(post_id) FROM {$wpdb->postmeta} WHERE meta_key = '_thumbnail_id' AND meta_value = %d AND post_id != %d",
 				$attachment_id,
 				$exclude_product_id
 			)
 		);
-		return 0 === (int) $count;
+
+		if ( 0 < (int) $thumbnail_count ) {
+			return false;
+		}
+
+		$gallery_count = $wpdb->get_var(
+			$wpdb->prepare(
+				"SELECT COUNT(post_id) FROM {$wpdb->postmeta} WHERE meta_key = '_product_image_gallery' AND post_id != %d AND FIND_IN_SET(%d, meta_value)",
+				$exclude_product_id,
+				$attachment_id
+			)
+		);
+
+		return 0 === (int) $gallery_count;
 	}
 }
