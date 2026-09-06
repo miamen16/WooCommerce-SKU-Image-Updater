@@ -3,13 +3,15 @@
  * Plugin Name:       Aura SKU Image Updater for WooCommerce
  * Plugin URI:        https://www.aura.llc/
  * Description:       Bulk-replace WooCommerce product featured images by matching uploaded files to product SKUs (simple & variable/variation products).
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Aura Systems
  * Author URI:        https://www.aura.llc/
  * Text Domain:       aura-sku-image-updater-for-woocommerce
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Requires Plugins:  woocommerce
+ * License:           GPLv2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * WC requires at least: 6.0
  * WC tested up to:      9.0
  *
@@ -20,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AURASKU_VERSION', '1.0.1' );
+define( 'AURASKU_VERSION', '1.0.2' );
 define( 'AURASKU_PLUGIN_FILE', __FILE__ );
 define( 'AURASKU_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'AURASKU_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
