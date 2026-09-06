@@ -2,9 +2,9 @@
 Contributors: imakethis, mibrahim1995
 Tags: woocommerce, products, sku, images, bulk edit
 Requires at least: 6.0
-Tested up to: 6.6
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ Upload one or more images from the WooCommerce admin, type in the SKU for each o
 * Find the matching product automatically by SKU (simple, variable parent, or a specific variation).
 * Replace the product's (or variation's) featured image.
 * Regenerate all registered WordPress image sizes for the new image.
-* Optionally delete the old featured image, but only if no other product still uses it.
+* Optionally delete the old featured image, but only if no other product still uses it as a featured image or gallery image.
 * Show a live success/error log, with no page reloads (AJAX upload).
 
 == Installation ==
@@ -35,6 +35,12 @@ Upload one or more images from the WooCommerce admin, type in the SKU for each o
 4. Click "Upload & Update" and watch the log below the table.
 
 == Changelog ==
+
+= 1.0.2 =
+* Improved uploaded image validation.
+* Prevented deletion of images still used by another product's featured image or gallery.
+* Added translator comments and GPL license declaration.
+* Updated the tested WordPress version.
 
 = 1.0.1 =
 * Updated plugin name and slug for WordPress.org review.
