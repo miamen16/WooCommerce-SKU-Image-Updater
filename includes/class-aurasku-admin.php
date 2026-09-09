@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Admin screen for Aura SKU Image Updater for WooCommerce.
+ * Admin screen for Mibrahim1995 SKU Image Updater for WooCommerce.
  *
- * @package Aura_Sku_Image_Updater
+ * @package Mibrahim1995_Sku_Image_Updater
  */
 
 if (! defined('ABSPATH')) {
@@ -22,8 +22,8 @@ class AURASKU_Admin
 	{
 		add_submenu_page(
 			'woocommerce',
-			__('Aura SKU Image Updater', 'aura-sku-image-updater-for-woocommerce'),
-			__('Aura SKU Image Updater', 'aura-sku-image-updater-for-woocommerce'),
+			__('Mibrahim1995 SKU Image Updater', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+			__('Mibrahim1995 SKU Image Updater', 'mibrahim1995-sku-image-updater-for-woocommerce'),
 			'manage_woocommerce',
 			'aura-sku-image-updater',
 			array($this, 'render_page')
@@ -46,12 +46,12 @@ class AURASKU_Admin
 				'ajax_url' => admin_url('admin-ajax.php'),
 				'nonce'    => wp_create_nonce('aurasku_upload_nonce'),
 				'i18n'     => array(
-					'skipped'       => __('Skipped (missing file or SKU).', 'aura-sku-image-updater-for-woocommerce'),
-					'processing'    => __('Processing SKU', 'aura-sku-image-updater-for-woocommerce'),
-					'requestFailed' => __('Request failed - check your connection and try again.', 'aura-sku-image-updater-for-woocommerce'),
-					'noRows'        => __('Add at least one image + SKU row first.', 'aura-sku-image-updater-for-woocommerce'),
-					'uploading'     => __('Processing…', 'aura-sku-image-updater-for-woocommerce'),
-					'submit'        => __('Upload & Update', 'aura-sku-image-updater-for-woocommerce'),
+					'skipped'       => __('Skipped (missing file or SKU).', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+					'processing'    => __('Processing SKU', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+					'requestFailed' => __('Request failed - check your connection and try again.', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+					'noRows'        => __('Add at least one image + SKU row first.', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+					'uploading'     => __('Processing…', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+					'submit'        => __('Upload & Update', 'mibrahim1995-sku-image-updater-for-woocommerce'),
 				),
 			)
 		);
@@ -64,30 +64,30 @@ class AURASKU_Admin
 		}
 ?>
 		<div class="wrap aurasku-wrap">
-			<h1><?php esc_html_e('Aura SKU Image Updater for WooCommerce', 'aura-sku-image-updater-for-woocommerce'); ?></h1>
+			<h1><?php esc_html_e('Mibrahim1995 SKU Image Updater for WooCommerce', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?></h1>
 			<p class="description">
-				<?php esc_html_e('Upload one or more images, enter the SKU that matches each one, and the plugin will find the product (simple, variable, or a specific variation), replace its featured image, and regenerate WordPress image sizes automatically.', 'aura-sku-image-updater-for-woocommerce'); ?>
+				<?php esc_html_e('Upload one or more images, enter the SKU that matches each one, and the plugin will find the product (simple, variable, or a specific variation), replace its featured image, and regenerate WordPress image sizes automatically.', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?>
 			</p>
 			<label class="aurasku-delete-old-label">
 				<input type="checkbox" id="aurasku-delete-old" checked="checked" />
-				<?php esc_html_e('Delete the old featured image after replacing it (skipped automatically if that image is still used by another product)', 'aura-sku-image-updater-for-woocommerce'); ?>
+				<?php esc_html_e('Delete the old featured image after replacing it (skipped automatically if that image is still used by another product)', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?>
 			</label>
 			<table class="widefat striped aurasku-table" id="aurasku-table">
 				<thead>
 					<tr>
-						<th style="width:35%;"><?php esc_html_e('Image file', 'aura-sku-image-updater-for-woocommerce'); ?></th>
-						<th style="width:25%;"><?php esc_html_e('SKU', 'aura-sku-image-updater-for-woocommerce'); ?></th>
-						<th style="width:15%;"><?php esc_html_e('Preview', 'aura-sku-image-updater-for-woocommerce'); ?></th>
-						<th style="width:25%;"><?php esc_html_e('Row action', 'aura-sku-image-updater-for-woocommerce'); ?></th>
+						<th style="width:35%;"><?php esc_html_e('Image file', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?></th>
+						<th style="width:25%;"><?php esc_html_e('SKU', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?></th>
+						<th style="width:15%;"><?php esc_html_e('Preview', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?></th>
+						<th style="width:25%;"><?php esc_html_e('Row action', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?></th>
 					</tr>
 				</thead>
 				<tbody id="aurasku-rows-body"></tbody>
 			</table>
 			<p class="aurasku-actions">
-				<button type="button" id="aurasku-add-row" class="button"><?php esc_html_e('+ Add Row', 'aura-sku-image-updater-for-woocommerce'); ?></button>
-				<button type="button" id="aurasku-submit" class="button button-primary"><?php esc_html_e('Upload & Update', 'aura-sku-image-updater-for-woocommerce'); ?></button>
+				<button type="button" id="aurasku-add-row" class="button"><?php esc_html_e('+ Add Row', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?></button>
+				<button type="button" id="aurasku-submit" class="button button-primary"><?php esc_html_e('Upload & Update', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?></button>
 			</p>
-			<h2><?php esc_html_e('Log', 'aura-sku-image-updater-for-woocommerce'); ?></h2>
+			<h2><?php esc_html_e('Log', 'mibrahim1995-sku-image-updater-for-woocommerce'); ?></h2>
 			<div id="aurasku-log" class="aurasku-log" aria-live="polite"></div>
 		</div>
 <?php
