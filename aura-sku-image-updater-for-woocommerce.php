@@ -5,7 +5,7 @@
  * Plugin URI:        https://github.com/miamen16/aura-sku-image-updater-for-woocommerce
  * Description:       Bulk-replace WooCommerce product featured images by matching uploaded files to product SKUs (simple & variable/variation products).
  * Version:           1.0.2
- * Author:            Aura Systems
+ * Author:            mibrahim1995
  * Author URI:        https://github.com/miamen16
  * Text Domain:       aura-sku-image-updater-for-woocommerce
  * Requires at least: 6.0
