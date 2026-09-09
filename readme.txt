@@ -1,5 +1,5 @@
-=== Mibrahim1995 SKU Image Updater for WooCommerce ===
-Contributors: mibrahim1995
+=== Aura SKU Image Updater for WooCommerce ===
+Contributors: imakethis, mibrahim1995
 Tags: woocommerce, products, sku, images, bulk edit
 Requires at least: 6.0
 Tested up to: 7.1
@@ -23,9 +23,9 @@ Upload one or more images from the WooCommerce admin, type in the SKU for each o
 
 == Installation ==
 
-1. Upload the `mibrahim1995-sku-image-updater-for-woocommerce` folder to `/wp-content/plugins/`.
+1. Upload the `aura-sku-image-updater-for-woocommerce` folder to `/wp-content/plugins/`.
 2. Activate the plugin through the "Plugins" screen in WordPress.
-3. Go to **WooCommerce → Mibrahim1995 SKU Image Updater**.
+3. Go to **WooCommerce → Aura SKU Image Updater**.
 
 == Usage ==
 
@@ -45,7 +45,7 @@ Upload one or more images from the WooCommerce admin, type in the SKU for each o
 = 1.0.1 =
 * Updated plugin name and slug for WordPress.org review.
 * Added WooCommerce plugin dependency declaration.
-* Added unique plugin prefixes to plugin identifiers.
+* Added unique Aura SKU prefixes to plugin identifiers.
 
 = 1.0.0 =
 * Initial release.
