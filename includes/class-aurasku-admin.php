@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Admin screen for Aura SKU Image Updater for WooCommerce.
+ * Admin screen for Mibrahim1995 SKU Image Updater for WooCommerce.
  *
  * @package Aura_Sku_Image_Updater
  */
@@ -22,8 +22,8 @@ class AURASKU_Admin
 	{
 		add_submenu_page(
 			'woocommerce',
-			__('Aura SKU Image Updater', 'aura-sku-image-updater-for-woocommerce'),
-			__('Aura SKU Image Updater', 'aura-sku-image-updater-for-woocommerce'),
+			__('Mibrahim1995 SKU Image Updater', 'aura-sku-image-updater-for-woocommerce'),
+			__('Mibrahim1995 SKU Image Updater', 'aura-sku-image-updater-for-woocommerce'),
 			'manage_woocommerce',
 			'aura-sku-image-updater',
 			array($this, 'render_page')
@@ -64,7 +64,7 @@ class AURASKU_Admin
 		}
 ?>
 		<div class="wrap aurasku-wrap">
-			<h1><?php esc_html_e('Aura SKU Image Updater for WooCommerce', 'aura-sku-image-updater-for-woocommerce'); ?></h1>
+			<h1><?php esc_html_e('Mibrahim1995 SKU Image Updater for WooCommerce', 'aura-sku-image-updater-for-woocommerce'); ?></h1>
 			<p class="description">
 				<?php esc_html_e('Upload one or more images, enter the SKU that matches each one, and the plugin will find the product (simple, variable, or a specific variation), replace its featured image, and regenerate WordPress image sizes automatically.', 'aura-sku-image-updater-for-woocommerce'); ?>
 			</p>
