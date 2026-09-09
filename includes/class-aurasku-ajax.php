@@ -3,7 +3,7 @@
 /**
  * Handles AJAX upload, SKU matching, and featured image replacement.
  *
- * @package Mibrahim1995_Sku_Image_Updater
+ * @package Aura_Sku_Image_Updater
  */
 
 if (! defined('ABSPATH')) {
@@ -22,14 +22,14 @@ class AURASKU_Ajax
 		check_ajax_referer('aurasku_upload_nonce', 'nonce');
 
 		if (! current_user_can('manage_woocommerce')) {
-			wp_send_json_error(array('message' => __('Permission denied.', 'mibrahim1995-sku-image-updater-for-woocommerce')));
+			wp_send_json_error(array('message' => __('Permission denied.', 'aura-sku-image-updater-for-woocommerce')));
 		}
 
 		$sku        = isset($_POST['sku']) ? sanitize_text_field(wp_unslash($_POST['sku'])) : '';
 		$delete_old = ! empty($_POST['delete_old']);
 
 		if ('' === $sku) {
-			wp_send_json_error(array('message' => __('SKU is required.', 'mibrahim1995-sku-image-updater-for-woocommerce')));
+			wp_send_json_error(array('message' => __('SKU is required.', 'aura-sku-image-updater-for-woocommerce')));
 		}
 
 		if (
@@ -39,7 +39,7 @@ class AURASKU_Ajax
 		) {
 			wp_send_json_error(
 				array(
-					'message' => __('No valid image file was received.', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+					'message' => __('No valid image file was received.', 'aura-sku-image-updater-for-woocommerce'),
 				)
 			);
 		}
@@ -55,7 +55,7 @@ class AURASKU_Ajax
 		);
 
 		if (empty($filetype['type']) || ! in_array($filetype['type'], $allowed_mimes, true)) {
-			wp_send_json_error(array('message' => __('The uploaded file is not a supported image type (jpg, png, gif, webp).', 'mibrahim1995-sku-image-updater-for-woocommerce')));
+			wp_send_json_error(array('message' => __('The uploaded file is not a supported image type (jpg, png, gif, webp).', 'aura-sku-image-updater-for-woocommerce')));
 		}
 
 		$product_id = wc_get_product_id_by_sku($sku);
@@ -64,7 +64,7 @@ class AURASKU_Ajax
 				array(
 					'message' => sprintf(
 						/* translators: %s: Product SKU. */
-						__('No product found with SKU "%s".', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+						__('No product found with SKU "%s".', 'aura-sku-image-updater-for-woocommerce'),
 						esc_html($sku)
 					),
 				)
@@ -73,7 +73,7 @@ class AURASKU_Ajax
 
 		$product = wc_get_product($product_id);
 		if (! $product) {
-			wp_send_json_error(array('message' => __('Product could not be loaded.', 'mibrahim1995-sku-image-updater-for-woocommerce')));
+			wp_send_json_error(array('message' => __('Product could not be loaded.', 'aura-sku-image-updater-for-woocommerce')));
 		}
 
 		require_once ABSPATH . 'wp-admin/includes/file.php';
@@ -89,7 +89,7 @@ class AURASKU_Ajax
 				array(
 					'message' => sprintf(
 						/* translators: %s: Error message returned by the WordPress media upload handler. */
-						__('Upload failed: %s', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+						__('Upload failed: %s', 'aura-sku-image-updater-for-woocommerce'),
 						$attachment_id->get_error_message()
 					),
 				)
@@ -107,13 +107,13 @@ class AURASKU_Ajax
 
 		$message = sprintf(
 			/* translators: %s: Product name. */
-			__('Featured image updated for "%s".', 'mibrahim1995-sku-image-updater-for-woocommerce'),
+			__('Featured image updated for "%s".', 'aura-sku-image-updater-for-woocommerce'),
 			$product->get_name()
 		);
 		if ($delete_old) {
 			$message .= $old_image_id
-				? ($deleted_old ? ' ' . __('Old image deleted.', 'mibrahim1995-sku-image-updater-for-woocommerce') : ' ' . __('Old image kept (still used by another product).', 'mibrahim1995-sku-image-updater-for-woocommerce'))
-				: ' ' . __('No previous image to delete.', 'mibrahim1995-sku-image-updater-for-woocommerce');
+				? ($deleted_old ? ' ' . __('Old image deleted.', 'aura-sku-image-updater-for-woocommerce') : ' ' . __('Old image kept (still used by another product).', 'aura-sku-image-updater-for-woocommerce'))
+				: ' ' . __('No previous image to delete.', 'aura-sku-image-updater-for-woocommerce');
 		}
 
 		wp_send_json_success(
