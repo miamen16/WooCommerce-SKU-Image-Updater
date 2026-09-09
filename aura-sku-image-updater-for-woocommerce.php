@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:       Aura SKU Image Updater for WooCommerce
+ * Plugin Name:       Mibrahim1995 SKU Image Updater for WooCommerce
  * Plugin URI:        https://github.com/miamen16/aura-sku-image-updater-for-woocommerce
  * Description:       Bulk-replace WooCommerce product featured images by matching uploaded files to product SKUs (simple & variable/variation products).
  * Version:           1.0.2
@@ -47,6 +47,6 @@ function aurasku_missing_woocommerce_notice() {
 		return;
 	}
 	echo '<div class="notice notice-error"><p>';
-	esc_html_e( 'Aura SKU Image Updater for WooCommerce requires WooCommerce to be installed and active.', 'aura-sku-image-updater-for-woocommerce' );
+	esc_html_e( 'Mibrahim1995 SKU Image Updater for WooCommerce requires WooCommerce to be installed and active.', 'aura-sku-image-updater-for-woocommerce' );
 	echo '</p></div>';
 }
